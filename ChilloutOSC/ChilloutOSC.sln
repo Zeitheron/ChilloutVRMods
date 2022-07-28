@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChilloutOSC", "ChilloutOSC.csproj", "{A0C0ECFF-28F5-4DDA-B66F-DC74C1B965FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14317B7A-A14A-47EB-A993-4615DFAAF0BA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0C0ECFF-28F5-4DDA-B66F-DC74C1B965FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C0ECFF-28F5-4DDA-B66F-DC74C1B965FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C0ECFF-28F5-4DDA-B66F-DC74C1B965FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C0ECFF-28F5-4DDA-B66F-DC74C1B965FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {462A882B-3DBF-4923-8606-C197767CAE1E}
+	EndGlobalSection
+EndGlobal
