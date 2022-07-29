@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NiceHotkeys")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ChilloutOSC")]
+[assembly: AssemblyDescription("Provides OpenSoundControl to avatars.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NiceHotkeys")]
-[assembly: AssemblyCopyright("Copyright Shinter © 2021")]
+[assembly: AssemblyCompany("DragonForge")]
+[assembly: AssemblyProduct("ChilloutOSC")]
+[assembly: AssemblyCopyright("Copyright Zeitheron © 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8437e5f6-3b2b-4503-9930-d47dbefaa09b")]
+[assembly: Guid("9d4a6b89-4454-468d-91c2-339429e97725")]
 
 // Version information for an assembly consists of the following four values:
 //

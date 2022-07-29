@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using ChilloutOSC.Extensions;
 
 using SimpleJSON;
+using System.IO;
 
 namespace ChilloutOSC.OscEndpoints
 {
@@ -26,35 +27,25 @@ namespace ChilloutOSC.OscEndpoints
             {
                 var pars = animator.ListAllOSCParameters();
 
-                JSONNode root = new JSONNode();
+                JSONClass root = new JSONClass();
                 {
                     JSONArray parameters = new JSONArray();
 
                     foreach (var par in pars)
                     {
-                        JSONNode n = new JSONNode();
-                        n.Add("name", par.paramName);
-                        n.Add("type", par.type.GetName());
-
-                        var ads = "/avatar/parameters/" + par.paramName;
-
-                        JSONNode input = new JSONNode();
-                        input.Add("address", ads);
-                        input.Add("type", par.type.GetName());
-                        n.Add("input", input);
-
-                        JSONNode output = new JSONNode();
-                        output.Add("address", ads);
-                        output.Add("type", par.type.GetName());
-                        n.Add("output", output);
-
+                        JSONClass n = new JSONClass();
+                        n["name"] = par.paramName;
+                        n["type"] = par.type.GetNameC();
+                        n["input"]["type"] = n["output"]["type"] = par.type.GetNameC();
+                        n["input"]["address"] = n["output"]["address"] = "/avatar/parameters/" + par.paramName;
                         parameters.Add(n);
                     }
-
-                    root.Add("parameters", parameters);
+                    root["parameters"] = parameters;
                 }
 
-                ChilloutOSC.broadcaster.Send("/avatar/parameters_list", root.ToString());
+                string json = root.ToString();
+
+                ChilloutOSC.broadcaster.Send("/avatar/parameters_list", json);
             }
         }
     }

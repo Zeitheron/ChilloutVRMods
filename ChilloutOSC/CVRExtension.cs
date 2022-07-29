@@ -28,6 +28,11 @@ namespace ChilloutOSC.Extensions
             return setup._avatar.GetComponent<CVRAvatar>();
         }
 
+        public static string GetAvatarGuid(this PlayerSetup setup)
+        {
+            return setup._avatar.GetComponent<CVRAssetInfo>().guid;
+        }
+
         public static List<OSCQueuedMsg> ListAllOSCParameters(this CVRAnimatorManager manager)
         {
             List<OSCQueuedMsg> paramList = new List<OSCQueuedMsg>();
@@ -86,6 +91,19 @@ namespace ChilloutOSC.Extensions
                     return "int";
                 case OSCMsgType.FLOAT:
                     return "float";
+            }
+            return "unknown";
+        }
+        public static string GetNameC(this OSCMsgType type)
+        {
+            switch (type)
+            {
+                case OSCMsgType.BOOL:
+                    return "Bool";
+                case OSCMsgType.INT:
+                    return "Int";
+                case OSCMsgType.FLOAT:
+                    return "Float";
             }
             return "unknown";
         }

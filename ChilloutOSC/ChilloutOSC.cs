@@ -14,7 +14,7 @@ using HarPatch = HarmonyLib.Harmony;
 using ABI_RC.Core.InteractionSystem;
 using System;
 
-[assembly: MelonInfo(typeof(ChilloutOSC.ChilloutOSC), "ChilloutOSC", "1.0.1", "Zeitheron")]
+[assembly: MelonInfo(typeof(ChilloutOSC.ChilloutOSC), "ChilloutOSC", "1.0.2", "Zeitheron")]
 [assembly: MelonGame("Alpha Blend Interactive", "ChilloutVR")]
 namespace ChilloutOSC
 {
@@ -31,13 +31,17 @@ namespace ChilloutOSC
             harmony = new HarPatch("org.zeith.CVR.OSC");
             harmony.PatchAll(System.Reflection.Assembly.GetExecutingAssembly());
 
-            oscServer = new OscServer(9000);
+            int bcPort = 9001;
+            int rvPort = 9000;
+
+            oscServer = new OscServer(rvPort);
             oscServer.Start();
 
-            broadcaster = new OscClient("255.255.255.255", 9001);
-
             AllEndpoints.registerAll(oscServer);
-            MelonLogger.Msg("OSC Server has started on port 9000.");
+            MelonLogger.Msg($"OSC Receiver has started on port {rvPort}.");
+
+            broadcaster = new OscClient("127.0.0.1", bcPort);
+            MelonLogger.Msg($"OSC Broadcaster has started on port {bcPort}.");
         }
 
         private bool needsUpdate;
@@ -51,8 +55,6 @@ namespace ChilloutOSC
             // PlayerSetup.Instance.animatorManager.
 
             var player = PlayerSetup.Instance;
-
-            // player.GetAvatarDescriptor().avatarSettings.baseController;
 
             CVRAnimatorManager animator = PlayerSetup.Instance?.animatorManager;
             var menu = CVR_MenuManager.Instance;
